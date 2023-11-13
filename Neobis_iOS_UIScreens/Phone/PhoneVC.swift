@@ -17,7 +17,7 @@ class PhoneVC: UIViewController {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Series"
-        label.font = .systemFont(ofSize: 22)
+        label.font = .boldSystemFont(ofSize: 22)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -47,6 +47,7 @@ class PhoneVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
+        configureNavBar()
         configureTableView()
         addSubviews()
         setupConstraints()
@@ -57,6 +58,14 @@ class PhoneVC: UIViewController {
         view.addSubview(options)
         view.addSubview(search)
         view.addSubview(tableView)
+    }
+    
+    func configureNavBar() {
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.titleView = titleLabel
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: options)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: search)
     }
     
     func configureTableView(){
@@ -71,29 +80,12 @@ class PhoneVC: UIViewController {
     func setupConstraints(){
         
         NSLayoutConstraint.activate([
-            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-//            titleLabel.leadingAnchor.constraint(equalTo: options.trailingAnchor, constant: 5),
-            
-            options.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            options.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-//            options.trailingAnchor.constraint(equalTo: titleLabel.leadingAnchor, constant: -120),
-            options.heightAnchor.constraint(equalToConstant: 20),
-            options.widthAnchor.constraint(equalToConstant: 20),
-            
-            
-            search.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            search.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            search.heightAnchor.constraint(equalToConstant: 20),
-            search.widthAnchor.constraint(equalToConstant: 20),
-            
-            tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-    
 }
 
 

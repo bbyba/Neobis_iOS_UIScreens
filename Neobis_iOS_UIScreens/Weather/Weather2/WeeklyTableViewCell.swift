@@ -38,6 +38,12 @@ class WeeklyTableViewCell: UITableViewCell {
         setupConstraints()
     }
     
+    func configure(with data: WeeklyWeather){
+        date.text = data.date
+        image.image = UIImage(named: data.image)
+        temperature.text = data.temperature
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -59,11 +65,5 @@ class WeeklyTableViewCell: UITableViewCell {
             temperature.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             temperature.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
         ])
-    }
-    
-    func configure(with data: WeeklyWeather){
-        date.text = data.date
-        image.image = UIImage(named: data.image)
-        temperature.text = data.temperature
     }
 }

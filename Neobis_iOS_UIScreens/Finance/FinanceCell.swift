@@ -55,6 +55,13 @@ class FinanceCell: UITableViewCell {
         setupConstraints()
     }
     
+    func configure(with data: Expense){
+        name.text = data.name
+        amount.text = data.amount
+        category.text = data.category
+        image.image = UIImage(named: data.image)
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -91,12 +98,5 @@ class FinanceCell: UITableViewCell {
             
             
         ])
-    }
-    
-    func configure(with data: Expense){
-        name.text = data.name
-        amount.text = data.amount
-        category.text = data.category
-        image.image = UIImage(named: data.image)
     }
 }

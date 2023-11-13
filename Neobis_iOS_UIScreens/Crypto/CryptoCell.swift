@@ -63,6 +63,14 @@ class CryptoCell: UITableViewCell {
         setupConstraints()
     }
     
+    func configure(with data: Coin){
+        name.text = data.name
+        changePercentage.text = data.change
+        amountInDollars.text = data.amountInDollar
+        amountInCoins.text = data.amountInCoins
+        image.image = UIImage(named: data.image)
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -102,13 +110,5 @@ class CryptoCell: UITableViewCell {
             amountInCoins.topAnchor.constraint(equalTo: amountInDollars.bottomAnchor, constant: 7),
             amountInCoins.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10)
         ])
-    }
-    
-    func configure(with data: Coin){
-        name.text = data.name
-        changePercentage.text = data.change
-        amountInDollars.text = data.amountInDollar
-        amountInCoins.text = data.amountInCoins
-        image.image = UIImage(named: data.image)
     }
 }

@@ -46,9 +46,9 @@ class TravelCell: UITableViewCell {
         setupConstraints()
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-//        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 14, left: 0, bottom: 14, right: 0))
+    func configure(with data: City) {
+        cellName.text = data.name
+        cityImage.image = UIImage(named: data.image)
     }
     
     required init?(coder: NSCoder) {
@@ -83,10 +83,5 @@ class TravelCell: UITableViewCell {
             lineImage.heightAnchor.constraint(equalToConstant: 3),
             lineImage.widthAnchor.constraint(equalToConstant: 500)
             ])
-    }
-    
-    func configure(with data: City) {
-        cellName.text = data.name
-        cityImage.image = UIImage(named: data.image)
     }
 }

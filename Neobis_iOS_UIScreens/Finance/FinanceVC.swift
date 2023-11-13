@@ -38,6 +38,7 @@ class FinanceVC: UIViewController {
         return label
     }()
     
+    //add collection view
     let month: UILabel = {
         let label = UILabel()
         label.text = "Апрель 2020"

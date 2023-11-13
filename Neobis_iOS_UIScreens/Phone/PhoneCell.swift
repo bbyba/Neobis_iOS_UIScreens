@@ -85,17 +85,17 @@ class PhoneCell: UITableViewCell {
                 cellImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -48),
                 
                 cellTitle.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 25),
-                cellTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 26),
+                cellTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30),
                 
                 cellDescription.topAnchor.constraint(equalTo: cellTitle.bottomAnchor, constant: 5),
-                cellDescription.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 26),
+                cellDescription.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30),
                 cellDescription.widthAnchor.constraint(equalToConstant: 185),
                 cellDescription.heightAnchor.constraint(equalToConstant: 42)
             ])
         } else {
             NSLayoutConstraint.activate([
                 cellImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-                cellImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 26),
+                cellImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30),
                 
                 cellTitle.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 25),
                 cellTitle.leadingAnchor.constraint(equalTo: cellImageView.leadingAnchor, constant: 150),
