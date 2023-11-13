@@ -76,14 +76,14 @@ class PhoneVC: UIViewController {
 //            titleLabel.leadingAnchor.constraint(equalTo: options.trailingAnchor, constant: 5),
             
             options.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            options.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            options.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
 //            options.trailingAnchor.constraint(equalTo: titleLabel.leadingAnchor, constant: -120),
             options.heightAnchor.constraint(equalToConstant: 20),
             options.widthAnchor.constraint(equalToConstant: 20),
             
             
             search.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            search.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            search.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             search.heightAnchor.constraint(equalToConstant: 20),
             search.widthAnchor.constraint(equalToConstant: 20),
             

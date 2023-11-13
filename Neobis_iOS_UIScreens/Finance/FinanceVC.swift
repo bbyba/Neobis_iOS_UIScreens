@@ -20,7 +20,7 @@ class FinanceVC: UIViewController {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Баланс"
-        label.font = .systemFont(ofSize: 16)
+        label.font = .systemFont(ofSize: 18)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -31,7 +31,7 @@ class FinanceVC: UIViewController {
     let totalAmount: UILabel = {
         let label = UILabel()
         label.text = "$1200.89"
-        label.font = .systemFont(ofSize: 30)
+        label.font = .systemFont(ofSize: 28)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -85,25 +85,27 @@ class FinanceVC: UIViewController {
         tableView.register(FinanceCell.self, forCellReuseIdentifier: "financeCell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
     }
+    
 
     func setupTableView(){
         NSLayoutConstraint.activate([
-            titleLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             
-            totalAmount.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            totalAmount.topAnchor.constraint(equalTo: titleLabel.safeAreaLayoutGuide.bottomAnchor, constant: 10),
+            totalAmount.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            totalAmount.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
             
-            month.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            month.topAnchor.constraint(equalTo: totalAmount.safeAreaLayoutGuide.bottomAnchor, constant: 25),
+            month.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            month.topAnchor.constraint(equalTo: totalAmount.bottomAnchor, constant: 25),
             
-            tableView.topAnchor.constraint(equalTo: month.safeAreaLayoutGuide.bottomAnchor, constant: 10),
-            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            tableView.topAnchor.constraint(equalTo: month.bottomAnchor, constant: 10),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.heightAnchor.constraint(equalToConstant: CGFloat(65 * expenses.count)),
+//            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
             
-            footer.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            footer.topAnchor.constraint(equalTo: tableView.safeAreaLayoutGuide.bottomAnchor, constant: 5)
+            footer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            footer.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 20)
         ])
     }
 

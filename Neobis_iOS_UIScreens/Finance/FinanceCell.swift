@@ -59,10 +59,6 @@ class FinanceCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-    }
-    
     func addSubviews(){
         contentView.addSubview(circleView)
         contentView.addSubview(image)

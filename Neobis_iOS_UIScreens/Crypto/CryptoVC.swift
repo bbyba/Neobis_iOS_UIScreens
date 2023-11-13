@@ -18,7 +18,7 @@ class CryptoVC: UIViewController {
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Портфолио"
+        label.text = "Portfolio"
         label.font = .systemFont(ofSize: 30)
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -36,8 +36,8 @@ class CryptoVC: UIViewController {
     
     let heading: UILabel = {
         let label = UILabel()
-        label.text = "посмотреть все"
-        label.font = .systemFont(ofSize: 12)
+        label.text = "Посмотреть все"
+        label.font = .systemFont(ofSize: 16)
         label.textAlignment = .right
         label.textColor = .red
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -66,7 +66,7 @@ class CryptoVC: UIViewController {
     func configureTableView(){
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 120
+        tableView.rowHeight = 90
         //register cells
         tableView.register(CryptoCell.self, forCellReuseIdentifier: "cryptoCell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -74,14 +74,14 @@ class CryptoVC: UIViewController {
     
     func setupTableView(){
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
             
-            settings.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
-            settings.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            settings.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            settings.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
             
-            heading.topAnchor.constraint(equalTo: settings.bottomAnchor, constant: 40),
-            heading.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 7),
+            heading.topAnchor.constraint(equalTo: settings.bottomAnchor, constant: 20),
+            heading.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
             
             tableView.topAnchor.constraint(equalTo: heading.bottomAnchor, constant: 10),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),

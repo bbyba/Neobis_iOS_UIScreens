@@ -8,21 +8,70 @@ import UIKit
 
 class WeatherVC2: UIViewController {
 
+    let settingsImage: UIImageView = {
+        let image = UIImageView(image: UIImage(named: "weathersettings"))
+        image.contentMode = .scaleAspectFit
+        image.translatesAutoresizingMaskIntoConstraints = false
+        
+        return image
+    }()
+    
+    let dayOfTheWeek: UILabel = {
+        let label = UILabel()
+        label.text = "Today"
+        label.textColor = .white
+        label.font = .boldSystemFont(ofSize: 24)
+        label.addShadowToText()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    let todayDate: UILabel = {
+        let label = UILabel()
+        label.text = "Apr, 26"
+        label.textColor = .white
+        label.font = .systemFont(ofSize: 20)
+        label.addShadowToText()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    let weekLabel: UILabel = {
+        let label = UILabel()
+        label.text = "This week: "
+        label.textColor = .white
+        label.font = .boldSystemFont(ofSize: 24)
+        label.addShadowToText()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    let calendarImage: UIImageView = {
+        let image = UIImageView(image: UIImage(named: "calendar"))
+        image.contentMode = .scaleAspectFit
+        image.translatesAutoresizingMaskIntoConstraints = false
+        
+        return image
+    }()
+    
+    let footer: UILabel = {
+        let label = UILabel()
+        label.text = "Accu Weather"
+        label.textColor = .white
+        label.font = .systemFont(ofSize: 20)
+        label.addShadowToText()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .systemCyan
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -11,5 +11,4 @@ struct Expense {
     let amount: String
     let category: String
     let image: String
-//    let color: String
 }

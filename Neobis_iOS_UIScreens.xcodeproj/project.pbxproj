@@ -30,6 +30,11 @@
 		DDEBBE972B01D245009065AD /* PhoneTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBBE962B01D245009065AD /* PhoneTabBarController.swift */; };
 		DDEBBE9B2B01D26B009065AD /* PhoneVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBBE9A2B01D26B009065AD /* PhoneVC2.swift */; };
 		DDEBBE9D2B01D274009065AD /* PhoneVC3.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBBE9C2B01D274009065AD /* PhoneVC3.swift */; };
+		DDEBBEA12B01FEDB009065AD /* ShadowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBBEA02B01FEDB009065AD /* ShadowExtension.swift */; };
+		DDEBBEA32B025E19009065AD /* WeeklyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBBEA22B025E19009065AD /* WeeklyModel.swift */; };
+		DDEBBEA52B025E9E009065AD /* DailyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBBEA42B025E9E009065AD /* DailyModel.swift */; };
+		DDEBBEA92B0260F0009065AD /* WeeklyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBBEA82B0260F0009065AD /* WeeklyTableViewCell.swift */; };
+		DDEBBEAD2B02654A009065AD /* DailyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBBEAC2B02654A009065AD /* DailyCollectionViewCell.swift */; };
 		DDF6A4E12AFC9BE8008F6836 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF6A4E02AFC9BE8008F6836 /* AppDelegate.swift */; };
 		DDF6A4E32AFC9BE8008F6836 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF6A4E22AFC9BE8008F6836 /* SceneDelegate.swift */; };
 		DDF6A4E52AFC9BE8008F6836 /* WeatherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF6A4E42AFC9BE8008F6836 /* WeatherVC.swift */; };
@@ -81,6 +86,11 @@
 		DDEBBE962B01D245009065AD /* PhoneTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneTabBarController.swift; sourceTree = "<group>"; };
 		DDEBBE9A2B01D26B009065AD /* PhoneVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVC2.swift; sourceTree = "<group>"; };
 		DDEBBE9C2B01D274009065AD /* PhoneVC3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVC3.swift; sourceTree = "<group>"; };
+		DDEBBEA02B01FEDB009065AD /* ShadowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowExtension.swift; sourceTree = "<group>"; };
+		DDEBBEA22B025E19009065AD /* WeeklyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyModel.swift; sourceTree = "<group>"; };
+		DDEBBEA42B025E9E009065AD /* DailyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyModel.swift; sourceTree = "<group>"; };
+		DDEBBEA82B0260F0009065AD /* WeeklyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyTableViewCell.swift; sourceTree = "<group>"; };
+		DDEBBEAC2B02654A009065AD /* DailyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCollectionViewCell.swift; sourceTree = "<group>"; };
 		DDF6A4DD2AFC9BE8008F6836 /* Neobis_iOS_UIScreens.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Neobis_iOS_UIScreens.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDF6A4E02AFC9BE8008F6836 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDF6A4E22AFC9BE8008F6836 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -174,6 +184,7 @@
 			children = (
 				DDEBBE9E2B01DB61009065AD /* Weather1 */,
 				DDEBBE9F2B01DB6B009065AD /* Weather2 */,
+				DDEBBEA02B01FEDB009065AD /* ShadowExtension.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -189,6 +200,10 @@
 		DDEBBE9F2B01DB6B009065AD /* Weather2 */ = {
 			isa = PBXGroup;
 			children = (
+				DDEBBEA22B025E19009065AD /* WeeklyModel.swift */,
+				DDEBBEA82B0260F0009065AD /* WeeklyTableViewCell.swift */,
+				DDEBBEA42B025E9E009065AD /* DailyModel.swift */,
+				DDEBBEAC2B02654A009065AD /* DailyCollectionViewCell.swift */,
 				DDEBBE652AFE5B64009065AD /* WeatherVC2.swift */,
 			);
 			path = Weather2;
@@ -383,12 +398,14 @@
 				DDF6A4E52AFC9BE8008F6836 /* WeatherVC.swift in Sources */,
 				DDEBBE892B01B27D009065AD /* CryptoCell.swift in Sources */,
 				DDEBBE662AFE5B64009065AD /* WeatherVC2.swift in Sources */,
+				DDEBBEA92B0260F0009065AD /* WeeklyTableViewCell.swift in Sources */,
 				DDEBBE8F2B01CCAB009065AD /* CryptoVC3.swift in Sources */,
 				DDEBBE832B0132F3009065AD /* FinanceCell.swift in Sources */,
 				DDEBBE732B00B1D7009065AD /* PhoneModel.swift in Sources */,
 				DDEBBE622AFE4393009065AD /* TravelVC.swift in Sources */,
 				DDEBBE972B01D245009065AD /* PhoneTabBarController.swift in Sources */,
 				DDEBBE8B2B01CC46009065AD /* CryptoTabBarController.swift in Sources */,
+				DDEBBEA32B025E19009065AD /* WeeklyModel.swift in Sources */,
 				DDEBBE812B00E785009065AD /* TravelCell.swift in Sources */,
 				DDEBBE9D2B01D274009065AD /* PhoneVC3.swift in Sources */,
 				DDEBBE6F2B00AAA9009065AD /* PhoneCell.swift in Sources */,
@@ -400,10 +417,13 @@
 				DDEBBE5E2AFE4378009065AD /* CryptoVC.swift in Sources */,
 				DDEBBE932B01D199009065AD /* FinanceVC3.swift in Sources */,
 				DDEBBE9B2B01D26B009065AD /* PhoneVC2.swift in Sources */,
+				DDEBBEA12B01FEDB009065AD /* ShadowExtension.swift in Sources */,
+				DDEBBEA52B025E9E009065AD /* DailyModel.swift in Sources */,
 				DDEBBE682AFE5C8B009065AD /* TabBarController.swift in Sources */,
 				DDEBBE952B01D1B2009065AD /* FinanceTabBarController.swift in Sources */,
 				DDEBBE872B01B1EE009065AD /* CryptoModel.swift in Sources */,
 				DDEBBE8D2B01CC99009065AD /* CryptoVC2.swift in Sources */,
+				DDEBBEAD2B02654A009065AD /* DailyCollectionViewCell.swift in Sources */,
 				DDF6A4E32AFC9BE8008F6836 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

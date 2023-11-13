@@ -9,7 +9,7 @@ class CryptoCell: UITableViewCell {
 
     let name: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 26)
+        label.font = UIFont.systemFont(ofSize: 24)
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -18,8 +18,8 @@ class CryptoCell: UITableViewCell {
     let changePercentage: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16)
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .lightGray
+        label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
     }()
@@ -67,12 +67,8 @@ class CryptoCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-    }
-    
     func addSuviews(){
-        contentView.addSubview(circleView)
+//        contentView.addSubview(circleView)
         contentView.addSubview(image)
         contentView.addSubview(name)
         contentView.addSubview(changePercentage)
@@ -82,21 +78,23 @@ class CryptoCell: UITableViewCell {
 
     func setupConstraints(){
         NSLayoutConstraint.activate([
-            circleView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            circleView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            circleView.heightAnchor.constraint(equalToConstant: 50),
-            circleView.widthAnchor.constraint(equalToConstant: 50),
+//            circleView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+//            circleView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+//            circleView.heightAnchor.constraint(equalToConstant: 50),
+//            circleView.widthAnchor.constraint(equalToConstant: 50),
             
-            image.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
-            image.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
-            image.heightAnchor.constraint(equalToConstant: 25),
-            image.widthAnchor.constraint(equalToConstant: 25),
+//            image.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            image.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            image.heightAnchor.constraint(equalToConstant: 30),
+            image.widthAnchor.constraint(equalToConstant: 30),
             
             name.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-            name.leadingAnchor.constraint(equalTo: circleView.leadingAnchor, constant: 20),
+            name.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 20),
+//            name.leadingAnchor.constraint(equalTo: circleView.leadingAnchor, constant: 20),
             
             changePercentage.topAnchor.constraint(equalTo: name.bottomAnchor, constant: 7),
-            changePercentage.leadingAnchor.constraint(equalTo: circleView.leadingAnchor, constant: 15),
+            changePercentage.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 20),
+//            changePercentage.leadingAnchor.constraint(equalTo: circleView.leadingAnchor, constant: 15),
             
             amountInDollars.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
             amountInDollars.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
