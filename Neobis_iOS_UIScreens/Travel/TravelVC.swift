@@ -52,7 +52,6 @@ class TravelVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
-        searchBar.sizeToFit()
         configureTableView()
         addSubviews()
         setupTableView()
@@ -79,22 +78,6 @@ class TravelVC: UIViewController {
     func setupTableView(){
     
         NSLayoutConstraint.activate([
-//            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 58),
-//            
-//            subtitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 11),
-//            subtitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 51),
-//            subtitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -51),
-//            
-//            searchBar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            searchBar.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 20),
-//            
-//            tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 25),
-//            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-//            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
-//            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-            
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 58),
 
@@ -105,6 +88,8 @@ class TravelVC: UIViewController {
 
             searchBar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             searchBar.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 20),
+            searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
 
             tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 25),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
