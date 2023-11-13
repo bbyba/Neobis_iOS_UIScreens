@@ -7,10 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DDEBBE5C2AFE436E009065AD /* FinanceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBBE5B2AFE436E009065AD /* FinanceVC.swift */; };
+		DDEBBE5E2AFE4378009065AD /* CryptoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBBE5D2AFE4378009065AD /* CryptoVC.swift */; };
+		DDEBBE622AFE4393009065AD /* TravelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBBE612AFE4393009065AD /* TravelVC.swift */; };
+		DDEBBE642AFE43D1009065AD /* PhoneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBBE632AFE43D1009065AD /* PhoneVC.swift */; };
+		DDEBBE662AFE5B64009065AD /* WeatherVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBBE652AFE5B64009065AD /* WeatherVC2.swift */; };
+		DDEBBE682AFE5C8B009065AD /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBBE672AFE5C8B009065AD /* TabBarController.swift */; };
+		DDEBBE6F2B00AAA9009065AD /* PhoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBBE6E2B00AAA9009065AD /* PhoneCell.swift */; };
+		DDEBBE732B00B1D7009065AD /* PhoneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBBE722B00B1D7009065AD /* PhoneModel.swift */; };
+		DDEBBE7F2B00E656009065AD /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBBE7E2B00E656009065AD /* CityModel.swift */; };
+		DDEBBE812B00E785009065AD /* TravelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBBE802B00E785009065AD /* TravelCell.swift */; };
+		DDEBBE832B0132F3009065AD /* FinanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBBE822B0132F3009065AD /* FinanceCell.swift */; };
+		DDEBBE852B01333A009065AD /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBBE842B01333A009065AD /* Expense.swift */; };
+		DDEBBE872B01B1EE009065AD /* CryptoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBBE862B01B1EE009065AD /* CryptoModel.swift */; };
+		DDEBBE892B01B27D009065AD /* CryptoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBBE882B01B27D009065AD /* CryptoCell.swift */; };
+		DDEBBE8B2B01CC46009065AD /* CryptoTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBBE8A2B01CC46009065AD /* CryptoTabBarController.swift */; };
+		DDEBBE8D2B01CC99009065AD /* CryptoVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBBE8C2B01CC99009065AD /* CryptoVC2.swift */; };
+		DDEBBE8F2B01CCAB009065AD /* CryptoVC3.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBBE8E2B01CCAB009065AD /* CryptoVC3.swift */; };
+		DDEBBE912B01D189009065AD /* FinanceVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBBE902B01D189009065AD /* FinanceVC2.swift */; };
+		DDEBBE932B01D199009065AD /* FinanceVC3.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBBE922B01D199009065AD /* FinanceVC3.swift */; };
+		DDEBBE952B01D1B2009065AD /* FinanceTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBBE942B01D1B2009065AD /* FinanceTabBarController.swift */; };
+		DDEBBE972B01D245009065AD /* PhoneTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBBE962B01D245009065AD /* PhoneTabBarController.swift */; };
+		DDEBBE9B2B01D26B009065AD /* PhoneVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBBE9A2B01D26B009065AD /* PhoneVC2.swift */; };
+		DDEBBE9D2B01D274009065AD /* PhoneVC3.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBBE9C2B01D274009065AD /* PhoneVC3.swift */; };
 		DDF6A4E12AFC9BE8008F6836 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF6A4E02AFC9BE8008F6836 /* AppDelegate.swift */; };
 		DDF6A4E32AFC9BE8008F6836 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF6A4E22AFC9BE8008F6836 /* SceneDelegate.swift */; };
-		DDF6A4E52AFC9BE8008F6836 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF6A4E42AFC9BE8008F6836 /* ViewController.swift */; };
-		DDF6A4E82AFC9BE8008F6836 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDF6A4E62AFC9BE8008F6836 /* Main.storyboard */; };
+		DDF6A4E52AFC9BE8008F6836 /* WeatherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF6A4E42AFC9BE8008F6836 /* WeatherVC.swift */; };
 		DDF6A4EA2AFC9BEA008F6836 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDF6A4E92AFC9BEA008F6836 /* Assets.xcassets */; };
 		DDF6A4ED2AFC9BEA008F6836 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDF6A4EB2AFC9BEA008F6836 /* LaunchScreen.storyboard */; };
 		DDF6A4F82AFC9BEB008F6836 /* Neobis_iOS_UIScreensTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF6A4F72AFC9BEB008F6836 /* Neobis_iOS_UIScreensTests.swift */; };
@@ -36,11 +58,33 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DDEBBE5B2AFE436E009065AD /* FinanceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceVC.swift; sourceTree = "<group>"; };
+		DDEBBE5D2AFE4378009065AD /* CryptoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoVC.swift; sourceTree = "<group>"; };
+		DDEBBE612AFE4393009065AD /* TravelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelVC.swift; sourceTree = "<group>"; };
+		DDEBBE632AFE43D1009065AD /* PhoneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVC.swift; sourceTree = "<group>"; };
+		DDEBBE652AFE5B64009065AD /* WeatherVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherVC2.swift; sourceTree = "<group>"; };
+		DDEBBE672AFE5C8B009065AD /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		DDEBBE6E2B00AAA9009065AD /* PhoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCell.swift; sourceTree = "<group>"; };
+		DDEBBE722B00B1D7009065AD /* PhoneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneModel.swift; sourceTree = "<group>"; };
+		DDEBBE7E2B00E656009065AD /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
+		DDEBBE802B00E785009065AD /* TravelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelCell.swift; sourceTree = "<group>"; };
+		DDEBBE822B0132F3009065AD /* FinanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceCell.swift; sourceTree = "<group>"; };
+		DDEBBE842B01333A009065AD /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
+		DDEBBE862B01B1EE009065AD /* CryptoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoModel.swift; sourceTree = "<group>"; };
+		DDEBBE882B01B27D009065AD /* CryptoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCell.swift; sourceTree = "<group>"; };
+		DDEBBE8A2B01CC46009065AD /* CryptoTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoTabBarController.swift; sourceTree = "<group>"; };
+		DDEBBE8C2B01CC99009065AD /* CryptoVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoVC2.swift; sourceTree = "<group>"; };
+		DDEBBE8E2B01CCAB009065AD /* CryptoVC3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoVC3.swift; sourceTree = "<group>"; };
+		DDEBBE902B01D189009065AD /* FinanceVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceVC2.swift; sourceTree = "<group>"; };
+		DDEBBE922B01D199009065AD /* FinanceVC3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceVC3.swift; sourceTree = "<group>"; };
+		DDEBBE942B01D1B2009065AD /* FinanceTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceTabBarController.swift; sourceTree = "<group>"; };
+		DDEBBE962B01D245009065AD /* PhoneTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneTabBarController.swift; sourceTree = "<group>"; };
+		DDEBBE9A2B01D26B009065AD /* PhoneVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVC2.swift; sourceTree = "<group>"; };
+		DDEBBE9C2B01D274009065AD /* PhoneVC3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVC3.swift; sourceTree = "<group>"; };
 		DDF6A4DD2AFC9BE8008F6836 /* Neobis_iOS_UIScreens.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Neobis_iOS_UIScreens.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDF6A4E02AFC9BE8008F6836 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDF6A4E22AFC9BE8008F6836 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DDF6A4E42AFC9BE8008F6836 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DDF6A4E72AFC9BE8008F6836 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DDF6A4E42AFC9BE8008F6836 /* WeatherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherVC.swift; sourceTree = "<group>"; };
 		DDF6A4E92AFC9BEA008F6836 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDF6A4EC2AFC9BEA008F6836 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DDF6A4EE2AFC9BEA008F6836 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,6 +120,80 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DDEBBE712B00B1A1009065AD /* Phone */ = {
+			isa = PBXGroup;
+			children = (
+				DDEBBE722B00B1D7009065AD /* PhoneModel.swift */,
+				DDEBBE6E2B00AAA9009065AD /* PhoneCell.swift */,
+				DDEBBE632AFE43D1009065AD /* PhoneVC.swift */,
+				DDEBBE9A2B01D26B009065AD /* PhoneVC2.swift */,
+				DDEBBE9C2B01D274009065AD /* PhoneVC3.swift */,
+				DDEBBE962B01D245009065AD /* PhoneTabBarController.swift */,
+			);
+			path = Phone;
+			sourceTree = "<group>";
+		};
+		DDEBBE742B00DDF1009065AD /* Travel */ = {
+			isa = PBXGroup;
+			children = (
+				DDEBBE7E2B00E656009065AD /* CityModel.swift */,
+				DDEBBE802B00E785009065AD /* TravelCell.swift */,
+				DDEBBE612AFE4393009065AD /* TravelVC.swift */,
+			);
+			path = Travel;
+			sourceTree = "<group>";
+		};
+		DDEBBE752B00DE10009065AD /* Finance */ = {
+			isa = PBXGroup;
+			children = (
+				DDEBBE842B01333A009065AD /* Expense.swift */,
+				DDEBBE822B0132F3009065AD /* FinanceCell.swift */,
+				DDEBBE5B2AFE436E009065AD /* FinanceVC.swift */,
+				DDEBBE902B01D189009065AD /* FinanceVC2.swift */,
+				DDEBBE922B01D199009065AD /* FinanceVC3.swift */,
+				DDEBBE942B01D1B2009065AD /* FinanceTabBarController.swift */,
+			);
+			path = Finance;
+			sourceTree = "<group>";
+		};
+		DDEBBE762B00DE27009065AD /* Crypto */ = {
+			isa = PBXGroup;
+			children = (
+				DDEBBE862B01B1EE009065AD /* CryptoModel.swift */,
+				DDEBBE882B01B27D009065AD /* CryptoCell.swift */,
+				DDEBBE5D2AFE4378009065AD /* CryptoVC.swift */,
+				DDEBBE8C2B01CC99009065AD /* CryptoVC2.swift */,
+				DDEBBE8E2B01CCAB009065AD /* CryptoVC3.swift */,
+				DDEBBE8A2B01CC46009065AD /* CryptoTabBarController.swift */,
+			);
+			path = Crypto;
+			sourceTree = "<group>";
+		};
+		DDEBBE772B00DE3B009065AD /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				DDEBBE9E2B01DB61009065AD /* Weather1 */,
+				DDEBBE9F2B01DB6B009065AD /* Weather2 */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		DDEBBE9E2B01DB61009065AD /* Weather1 */ = {
+			isa = PBXGroup;
+			children = (
+				DDF6A4E42AFC9BE8008F6836 /* WeatherVC.swift */,
+			);
+			path = Weather1;
+			sourceTree = "<group>";
+		};
+		DDEBBE9F2B01DB6B009065AD /* Weather2 */ = {
+			isa = PBXGroup;
+			children = (
+				DDEBBE652AFE5B64009065AD /* WeatherVC2.swift */,
+			);
+			path = Weather2;
+			sourceTree = "<group>";
+		};
 		DDF6A4D42AFC9BE8008F6836 = {
 			isa = PBXGroup;
 			children = (
@@ -101,11 +219,15 @@
 			children = (
 				DDF6A4E02AFC9BE8008F6836 /* AppDelegate.swift */,
 				DDF6A4E22AFC9BE8008F6836 /* SceneDelegate.swift */,
-				DDF6A4E42AFC9BE8008F6836 /* ViewController.swift */,
-				DDF6A4E62AFC9BE8008F6836 /* Main.storyboard */,
-				DDF6A4E92AFC9BEA008F6836 /* Assets.xcassets */,
-				DDF6A4EB2AFC9BEA008F6836 /* LaunchScreen.storyboard */,
+				DDEBBE672AFE5C8B009065AD /* TabBarController.swift */,
+				DDEBBE772B00DE3B009065AD /* Weather */,
+				DDEBBE762B00DE27009065AD /* Crypto */,
+				DDEBBE752B00DE10009065AD /* Finance */,
+				DDEBBE742B00DDF1009065AD /* Travel */,
+				DDEBBE712B00B1A1009065AD /* Phone */,
 				DDF6A4EE2AFC9BEA008F6836 /* Info.plist */,
+				DDF6A4EB2AFC9BEA008F6836 /* LaunchScreen.storyboard */,
+				DDF6A4E92AFC9BEA008F6836 /* Assets.xcassets */,
 			);
 			path = Neobis_iOS_UIScreens;
 			sourceTree = "<group>";
@@ -233,7 +355,6 @@
 			files = (
 				DDF6A4ED2AFC9BEA008F6836 /* LaunchScreen.storyboard in Resources */,
 				DDF6A4EA2AFC9BEA008F6836 /* Assets.xcassets in Resources */,
-				DDF6A4E82AFC9BE8008F6836 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,8 +379,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDF6A4E52AFC9BE8008F6836 /* ViewController.swift in Sources */,
+				DDEBBE912B01D189009065AD /* FinanceVC2.swift in Sources */,
+				DDF6A4E52AFC9BE8008F6836 /* WeatherVC.swift in Sources */,
+				DDEBBE892B01B27D009065AD /* CryptoCell.swift in Sources */,
+				DDEBBE662AFE5B64009065AD /* WeatherVC2.swift in Sources */,
+				DDEBBE8F2B01CCAB009065AD /* CryptoVC3.swift in Sources */,
+				DDEBBE832B0132F3009065AD /* FinanceCell.swift in Sources */,
+				DDEBBE732B00B1D7009065AD /* PhoneModel.swift in Sources */,
+				DDEBBE622AFE4393009065AD /* TravelVC.swift in Sources */,
+				DDEBBE972B01D245009065AD /* PhoneTabBarController.swift in Sources */,
+				DDEBBE8B2B01CC46009065AD /* CryptoTabBarController.swift in Sources */,
+				DDEBBE812B00E785009065AD /* TravelCell.swift in Sources */,
+				DDEBBE9D2B01D274009065AD /* PhoneVC3.swift in Sources */,
+				DDEBBE6F2B00AAA9009065AD /* PhoneCell.swift in Sources */,
+				DDEBBE5C2AFE436E009065AD /* FinanceVC.swift in Sources */,
 				DDF6A4E12AFC9BE8008F6836 /* AppDelegate.swift in Sources */,
+				DDEBBE852B01333A009065AD /* Expense.swift in Sources */,
+				DDEBBE642AFE43D1009065AD /* PhoneVC.swift in Sources */,
+				DDEBBE7F2B00E656009065AD /* CityModel.swift in Sources */,
+				DDEBBE5E2AFE4378009065AD /* CryptoVC.swift in Sources */,
+				DDEBBE932B01D199009065AD /* FinanceVC3.swift in Sources */,
+				DDEBBE9B2B01D26B009065AD /* PhoneVC2.swift in Sources */,
+				DDEBBE682AFE5C8B009065AD /* TabBarController.swift in Sources */,
+				DDEBBE952B01D1B2009065AD /* FinanceTabBarController.swift in Sources */,
+				DDEBBE872B01B1EE009065AD /* CryptoModel.swift in Sources */,
+				DDEBBE8D2B01CC99009065AD /* CryptoVC2.swift in Sources */,
 				DDF6A4E32AFC9BE8008F6836 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,14 +441,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		DDF6A4E62AFC9BE8008F6836 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DDF6A4E72AFC9BE8008F6836 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DDF6A4EB2AFC9BEA008F6836 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -447,7 +583,6 @@
 				INFOPLIST_FILE = Neobis_iOS_UIScreens/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -475,7 +610,6 @@
 				INFOPLIST_FILE = Neobis_iOS_UIScreens/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

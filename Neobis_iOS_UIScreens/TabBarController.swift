@@ -5,21 +5,19 @@
 
 import UIKit
 
-class TabBarController: UIViewController {
+class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemRed
-        
         configureTabs()
     }
     
     private func configureTabs(){
-        let vc1 = FirstScreen()
-        let vc2 = CryptoViewController()
-        let vc3 = FinanceViewController()
-        let vc4 = TravelViewController()
-        let vc5 = PhoneViewController()
+        let vc1 = WeatherVC()
+        let vc2 = CryptoVC()
+        let vc3 = FinanceVC()
+        let vc4 = TravelVC()
+        let vc5 = PhoneVC()
         
         //Set tab images
         vc1.tabBarItem.image = UIImage(systemName: "cloud.sun.circle")
@@ -29,12 +27,11 @@ class TabBarController: UIViewController {
         vc5.tabBarItem.image = UIImage(systemName: "iphone.gen1.circle")
         
         //Title
-//        vc1.tabBarItem.title = "Weather"
-        vc1.title = "Weather"
-        vc2.title = "Crypto"
-        vc3.title = "Finance"
-        vc4.title = "Travel"
-        vc5.title = "Phone"
+        vc1.tabBarItem.title = "Weather"
+        vc2.tabBarItem.title = "Crypto"
+        vc3.tabBarItem.title = "Finance"
+        vc4.tabBarItem.title = "Travel"
+        vc5.tabBarItem.title = "Phone"
         
         //To wrap in a navigation controller
         let nav1 = UINavigationController(rootViewController: vc1)
@@ -42,6 +39,9 @@ class TabBarController: UIViewController {
         let nav3 = UINavigationController(rootViewController: vc3)
         let nav4 = UINavigationController(rootViewController: vc4)
         let nav5 = UINavigationController(rootViewController: vc5)
+        
+        tabBar.tintColor = .label
+        tabBar.backgroundColor = .systemGray6
       
         setViewControllers([nav1, nav2, nav3, nav4, nav5], animated: true)
     }

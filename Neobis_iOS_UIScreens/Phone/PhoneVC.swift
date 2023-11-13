@@ -6,45 +6,114 @@
 import UIKit
 
 class PhoneVC: UIViewController {
-
-    var tableView = UITableView()
+    
+    let categories: [PhoneModel] = [
+        PhoneModel(title: "SOS", description: "Mini meltdown? Get some Headspace in a hurry", image: "book", isRight: true),
+        PhoneModel(title: "On-the-Go", description: "Mindful living? Get your Headspace to go", image: "books", isRight: false),
+        PhoneModel(title: "Classic", description: "Like it simple? Get some extra Headspace", image: "certificate", isRight: true),
+        PhoneModel(title: "SOS", description: "Mini meltdown? Get some Headspace in a hurry", image: "globe", isRight: false)
+    ]
+    
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Series"
+        label.font = .systemFont(ofSize: 22)
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    let options: UIImageView = {
+        let image = UIImageView(image: UIImage(named: "option"))
+        image.contentMode = .scaleAspectFit
+        image.translatesAutoresizingMaskIntoConstraints = false
+        
+        return image
+    }()
+    
+    let search: UIImageView = {
+        let image = UIImageView(image: UIImage(named: "magnifier"))
+        image.contentMode = .scaleAspectFit
+        image.translatesAutoresizingMaskIntoConstraints = false
+        
+        return image
+    }()
+    
+    
+    let tableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
+        
         configureTableView()
+        addSubviews()
+        setupConstraints()
+    }
+    
+    func addSubviews(){
+        view.addSubview(titleLabel)
+        view.addSubview(options)
+        view.addSubview(search)
+        view.addSubview(tableView)
     }
     
     func configureTableView(){
-        view.addSubview(tableView)
-        
-        //set delegates
-        setTableViewDelegates()
-        
-        //set row height
-        tableView.rowHeight = 150
-        
-        //register cells
-        
-        //set constraints: pin to the edges
-        tableView.pin(to: view)
-    }
-    
-    func setTableViewDelegates(){
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = 160
+        //register cells
+        tableView.register(PhoneCell.self, forCellReuseIdentifier: "phoneCell")
+        tableView.translatesAutoresizingMaskIntoConstraints = false
     }
     
-
+    func setupConstraints(){
+        
+        NSLayoutConstraint.activate([
+            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+//            titleLabel.leadingAnchor.constraint(equalTo: options.trailingAnchor, constant: 5),
+            
+            options.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            options.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+//            options.trailingAnchor.constraint(equalTo: titleLabel.leadingAnchor, constant: -120),
+            options.heightAnchor.constraint(equalToConstant: 20),
+            options.widthAnchor.constraint(equalToConstant: 20),
+            
+            
+            search.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            search.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            search.heightAnchor.constraint(equalToConstant: 20),
+            search.widthAnchor.constraint(equalToConstant: 20),
+            
+            tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+    }
+    
 }
 
 
 
 extension PhoneVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return categories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "phoneCell", for: indexPath) as? PhoneCell else {fatalError("Unable to dequeue PhoneCell")}
+        let data = categories[indexPath.row]
+        cell.configure(with: data)
+
+        return cell
     }
 }
+
+

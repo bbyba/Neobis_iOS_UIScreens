@@ -2,29 +2,133 @@
 //  FinanceVC.swift
 //  Neobis_iOS_UIScreens
 //
-//  Created by Burte Bayaraa on 2023.11.10.
-//
 
 import UIKit
 
 class FinanceVC: UIViewController {
+    
+    let expenses = [
+        Expense(name: "Дом", amount: "$321", category: "Продукты", image: "home"),
+        Expense(name: "Покупки", amount: "$574", category: "Одежда", image: "tag"),
+        Expense(name: "Транспорт", amount: "$124", category: "Такси", image: "smile"),
+        Expense(name: "Здоровье",  amount: "$765", category: "Лечение", image: "heart"),
+        Expense(name: "Фитнес", amount: "$324", category: "Тренировки", image: "cookie"),
+        Expense(name: "Счета",  amount: "$726", category: "Комунальные", image: "mail"),
+        Expense(name: "Ресторан", amount: "$325", category: "Ужин", image: "heart"),
+    ]
+    
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Баланс"
+        label.font = .systemFont(ofSize: 16)
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
 
+    
+    let totalAmount: UILabel = {
+        let label = UILabel()
+        label.text = "$1200.89"
+        label.font = .systemFont(ofSize: 30)
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    let month: UILabel = {
+        let label = UILabel()
+        label.text = "Апрель 2020"
+        label.font = .systemFont(ofSize: 20)
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    let footer: UILabel = {
+        let label = UILabel()
+        label.text = "См. ещё"
+        label.font = .systemFont(ofSize: 16)
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    let tableView = UITableView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemFill
-
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .systemBackground
+        addSubviews()
+        configureTableView()
+        setupTableView()
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func addSubviews(){
+        view.addSubview(titleLabel)
+        view.addSubview(totalAmount)
+        view.addSubview(month)
+        view.addSubview(tableView)
+        view.addSubview(footer)
     }
-    */
+    
+    func configureTableView(){
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = 65
+        //register cells
+        tableView.register(FinanceCell.self, forCellReuseIdentifier: "financeCell")
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+    }
+
+    func setupTableView(){
+        NSLayoutConstraint.activate([
+            titleLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            
+            totalAmount.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            totalAmount.topAnchor.constraint(equalTo: titleLabel.safeAreaLayoutGuide.bottomAnchor, constant: 10),
+            
+            month.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            month.topAnchor.constraint(equalTo: totalAmount.safeAreaLayoutGuide.bottomAnchor, constant: 25),
+            
+            tableView.topAnchor.constraint(equalTo: month.safeAreaLayoutGuide.bottomAnchor, constant: 10),
+            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            
+            footer.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            footer.topAnchor.constraint(equalTo: tableView.safeAreaLayoutGuide.bottomAnchor, constant: 5)
+        ])
+    }
 
 }
+
+
+
+
+extension FinanceVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return expenses.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "financeCell", for: indexPath) as? FinanceCell else {
+            fatalError("Unable to dequeue FinanceCell")
+        }
+        let expense = expenses[indexPath.row]
+        cell.configure(with: expense)
+        
+        return cell
+    }
+}
+

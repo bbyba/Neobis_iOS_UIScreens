@@ -2,22 +2,115 @@
 //  CryptoCell.swift
 //  Neobis_iOS_UIScreens
 //
-//  Created by Burte Bayaraa on 2023.11.13.
-//
 
 import UIKit
 
 class CryptoCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    let name: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 26)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    let changePercentage: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .lightGray
+        
+        return label
+    }()
+    
+    let amountInDollars: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 22)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    let amountInCoins: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .lightGray
+        
+        return label
+    }()
+    
+    let image: UIImageView = {
+        let image = UIImageView()
+        image.contentMode = .scaleAspectFit
+        image.translatesAutoresizingMaskIntoConstraints = false
+        
+        return image
+    }()
+    
+    let circleView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 16
+        
+        return view
+    }()
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        addSuviews()
+        setupConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+    }
+    
+    func addSuviews(){
+        contentView.addSubview(circleView)
+        contentView.addSubview(image)
+        contentView.addSubview(name)
+        contentView.addSubview(changePercentage)
+        contentView.addSubview(amountInDollars)
+        contentView.addSubview(amountInCoins)
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func setupConstraints(){
+        NSLayoutConstraint.activate([
+            circleView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            circleView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            circleView.heightAnchor.constraint(equalToConstant: 50),
+            circleView.widthAnchor.constraint(equalToConstant: 50),
+            
+            image.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
+            image.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
+            image.heightAnchor.constraint(equalToConstant: 25),
+            image.widthAnchor.constraint(equalToConstant: 25),
+            
+            name.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            name.leadingAnchor.constraint(equalTo: circleView.leadingAnchor, constant: 20),
+            
+            changePercentage.topAnchor.constraint(equalTo: name.bottomAnchor, constant: 7),
+            changePercentage.leadingAnchor.constraint(equalTo: circleView.leadingAnchor, constant: 15),
+            
+            amountInDollars.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            amountInDollars.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            
+            amountInCoins.topAnchor.constraint(equalTo: amountInDollars.bottomAnchor, constant: 7),
+            amountInCoins.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10)
+        ])
     }
-
+    
+    func configure(with data: Coin){
+        name.text = data.name
+        changePercentage.text = data.change
+        amountInDollars.text = data.amountInDollar
+        amountInCoins.text = data.amountInCoins
+        image.image = UIImage(named: data.image)
+    }
 }
