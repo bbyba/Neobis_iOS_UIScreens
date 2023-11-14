@@ -8,25 +8,24 @@ import UIKit
 class CryptoVC: UIViewController {
     
     let coins = [
-        Coin(name: "Bitcoin", amountInDollar: "$29,850.15", change: "+1,6%", amountInCoins: "2.73 BTC", image: "bitcoin"),
-        Coin(name: "Ethereum", amountInDollar: "$10,561.24", change: "-0,82%", amountInCoins: "47.61 ETH", image: "ethereum"),
-        Coin(name: "Litecoin", amountInDollar: "$3,676.76", change: "-2,10%", amountInCoins: "39,27 LTC", image: "litecoin"),
-        Coin(name: "Ripple", amountInDollar: "$5,241.62", change: "+0,27%", amountInCoins: "16447,65 XRP", image: "ripple"),
-        Coin(name: "Ripple", amountInDollar: "$5,241.62", change: "+0,27%", amountInCoins: "16447,65 XRP", image: "ripple"),
-        Coin(name: "Ripple", amountInDollar: "$5,241.62", change: "+0,27%", amountInCoins: "16447,65 XRP", image: "ripple"),
+        Coin(name: "Bitcoin", amountInDollar: "$29,850.15", change: "+1,6%", amountInCoins: "2.73 BTC", image: "bitcoin", color: "#F6543E"),
+        Coin(name: "Ethereum", amountInDollar: "$10,561.24", change: "-0,82%", amountInCoins: "47.61 ETH", image: "ethereum", color: "#6374C3"),
+        Coin(name: "Litecoin", amountInDollar: "$3,676.76", change: "-2,10%", amountInCoins: "39,27 LTC", image: "litecoin", color: "#30E0A1"),
+        Coin(name: "Ripple", amountInDollar: "$5,241.62", change: "+0,27%", amountInCoins: "16447,65 XRP", image: "ripple", color: "#638FFE"),
+        Coin(name: "Ripple", amountInDollar: "$5,241.62", change: "+0,27%", amountInCoins: "16447,65 XRP", image: "ripple", color: "#638FFE"),
+        Coin(name: "Ripple", amountInDollar: "$5,241.62", change: "+0,27%", amountInCoins: "16447,65 XRP", image: "ripple", color: "#638FFE")
     ]
     
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Portfolio"
-        label.font = .systemFont(ofSize: 30)
-        label.textAlignment = .left
+        label.font = .boldSystemFont(ofSize: 30)
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
     }()
     
-    let settings: UIImageView = {
+    let settingsImage: UIImageView = {
         let image = UIImageView(image: UIImage(named: "settings"))
         image.contentMode = .scaleAspectFit
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -34,9 +33,18 @@ class CryptoVC: UIViewController {
         return image
     }()
     
+    lazy var settingsButton: UIButton = {
+        let button = UIButton()
+        button.setImage(settingsImage.image, for: .normal)
+        button.addTarget(self, action: #selector(didTapSettings), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }()
+    
     let heading: UILabel = {
         let label = UILabel()
-        label.text = "Посмотреть все"
+        label.text = "Show all"
         label.font = .systemFont(ofSize: 16)
         label.textAlignment = .right
         label.textColor = .red
@@ -50,15 +58,16 @@ class CryptoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        configureTableView()
+        
         addSubviews()
+        configureTableView()
         setupTableView()
     }
 
     
     func addSubviews(){
         view.addSubview(titleLabel)
-        view.addSubview(settings)
+        view.addSubview(settingsButton)
         view.addSubview(heading)
         view.addSubview(tableView)
     }
@@ -66,7 +75,7 @@ class CryptoVC: UIViewController {
     func configureTableView(){
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 90
+        tableView.rowHeight = 88
         //register cells
         tableView.register(CryptoCell.self, forCellReuseIdentifier: "cryptoCell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -74,20 +83,26 @@ class CryptoVC: UIViewController {
     
     func setupTableView(){
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
+            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 79),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 28),
             
-            settings.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            settings.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
+            settingsButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 84),
+            settingsButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -28),
+            settingsButton.heightAnchor.constraint(equalToConstant: 24),
+            settingsButton.widthAnchor.constraint(equalToConstant: 24),
             
-            heading.topAnchor.constraint(equalTo: settings.bottomAnchor, constant: 20),
-            heading.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
+            heading.topAnchor.constraint(equalTo: settingsButton.bottomAnchor, constant: 44),
+            heading.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -28),
             
-            tableView.topAnchor.constraint(equalTo: heading.bottomAnchor, constant: 10),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            tableView.topAnchor.constraint(equalTo: heading.bottomAnchor, constant: 20),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 28),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -28),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 100)
         ])
+    }
+    
+    @objc func didTapSettings(){
+        print("Crypto: Settings button tapped.")
     }
 }
 

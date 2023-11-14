@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Coin {
     let name: String
@@ -11,5 +12,5 @@ struct Coin {
     let change: String
     let amountInCoins: String
     let image: String
-    
+    let color: String
 }

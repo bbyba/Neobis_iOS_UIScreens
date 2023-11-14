@@ -68,6 +68,9 @@ class WeatherVC2: UIViewController {
         return label
     }()
     
+    let collectionView = UICollectionView()
+    let tableView = UITableView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemCyan

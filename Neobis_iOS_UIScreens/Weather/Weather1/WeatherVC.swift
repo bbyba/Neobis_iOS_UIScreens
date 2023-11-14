@@ -244,7 +244,6 @@ class WeatherVC: UIViewController {
     
     @objc func didTapNextWeek(){
         self.navigationController?.pushViewController(WeatherVC2(), animated: true)
-        
     }
 }
 

@@ -5,8 +5,8 @@
 
 import Foundation
 
-struct DaiyWeather {
-    let date: String
+struct DailyWeather {
+    let temperature: String
     let image: String
     let hour: String
 }

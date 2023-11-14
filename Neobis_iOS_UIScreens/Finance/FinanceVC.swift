@@ -31,7 +31,7 @@ class FinanceVC: UIViewController {
     let totalAmount: UILabel = {
         let label = UILabel()
         label.text = "$1200.89"
-        label.font = .systemFont(ofSize: 28)
+        label.font = .boldSystemFont(ofSize: 28)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -64,10 +64,10 @@ class FinanceVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        
         addSubviews()
         configureTableView()
         setupTableView()
-        
     }
     
     func addSubviews(){
@@ -102,13 +102,15 @@ class FinanceVC: UIViewController {
             tableView.topAnchor.constraint(equalTo: month.bottomAnchor, constant: 10),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.heightAnchor.constraint(equalToConstant: CGFloat(65 * expenses.count)),
+            tableView.heightAnchor.constraint(equalToConstant: CGFloat(tableView.rowHeight * CGFloat(expenses.count))),
 //            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
             
             footer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             footer.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 20)
         ])
     }
+    
+
 
 }
 
@@ -119,7 +121,7 @@ extension FinanceVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return expenses.count
     }
@@ -133,5 +135,5 @@ extension FinanceVC: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
-}
 
+}
