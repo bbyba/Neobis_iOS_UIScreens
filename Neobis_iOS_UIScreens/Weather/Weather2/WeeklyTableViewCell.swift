@@ -10,6 +10,8 @@ class WeeklyTableViewCell: UITableViewCell {
     let date: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.textColor = .white
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -26,6 +28,8 @@ class WeeklyTableViewCell: UITableViewCell {
     let temperature: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 20)
+        label.textColor = .white
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -34,6 +38,7 @@ class WeeklyTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        backgroundColor = .clear
         addSubviews()
         setupConstraints()
     }
@@ -61,6 +66,8 @@ class WeeklyTableViewCell: UITableViewCell {
             
             image.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             image.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            image.widthAnchor.constraint(equalToConstant: 90),
+            image.heightAnchor.constraint(equalToConstant: 90),
             
             temperature.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             temperature.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),

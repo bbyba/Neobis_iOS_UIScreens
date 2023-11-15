@@ -19,6 +19,7 @@ class DailyCollectionViewCell: UICollectionViewCell {
     
     let image: UIImageView = {
         let image = UIImageView()
+        image.tintColor = .white
         image.contentMode = .scaleAspectFit
         image.translatesAutoresizingMaskIntoConstraints = false
         
@@ -62,18 +63,14 @@ class DailyCollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             temperature.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             temperature.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 13),
-            temperature.widthAnchor.constraint(equalToConstant: 42),
-            temperature.heightAnchor.constraint(equalToConstant: 28),
-            
+       
             image.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            image.topAnchor.constraint(equalTo: temperature.topAnchor, constant: 23),
-            image.widthAnchor.constraint(equalToConstant: 37),
-            image.heightAnchor.constraint(equalToConstant: 30),
+            image.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            image.widthAnchor.constraint(equalToConstant: 95),
+            image.heightAnchor.constraint(equalToConstant: 95),
             
             hour.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            hour.topAnchor.constraint(equalTo: image.topAnchor, constant: 20),
-            hour.widthAnchor.constraint(equalToConstant: 44),
-            hour.heightAnchor.constraint(equalToConstant: 28),
+            hour.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
         ])
     }
 }

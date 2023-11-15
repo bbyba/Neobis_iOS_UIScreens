@@ -12,5 +12,5 @@ struct Coin {
     let change: String
     let amountInCoins: String
     let image: String
-    let color: String
+    let color: UIColor
 }

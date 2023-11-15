@@ -8,19 +8,19 @@ import UIKit
 class FinanceVC: UIViewController {
     
     let expenses = [
-        Expense(name: "Дом", amount: "$321", category: "Продукты", image: "home"),
-        Expense(name: "Покупки", amount: "$574", category: "Одежда", image: "tag"),
-        Expense(name: "Транспорт", amount: "$124", category: "Такси", image: "smile"),
-        Expense(name: "Здоровье",  amount: "$765", category: "Лечение", image: "heart"),
-        Expense(name: "Фитнес", amount: "$324", category: "Тренировки", image: "cookie"),
-        Expense(name: "Счета",  amount: "$726", category: "Комунальные", image: "mail"),
-        Expense(name: "Ресторан", amount: "$325", category: "Ужин", image: "heart"),
+        Expense(name: "Дом", amount: "$321", category: "Продукты", image: "house", color: .systemYellow),
+        Expense(name: "Покупки", amount: "$574", category: "Одежда", image: "tag", color: .systemPurple),
+        Expense(name: "Транспорт", amount: "$124", category: "Такси", image: "emoji", color: .systemGreen),
+        Expense(name: "Здоровье",  amount: "$765", category: "Лечение", image: "heart", color: .systemPurple),
+        Expense(name: "Фитнес", amount: "$324", category: "Тренировки", image: "cookie", color: .systemBlue),
+        Expense(name: "Счета",  amount: "$726", category: "Комунальные", image: "envelope", color: .systemMint),
+        Expense(name: "Ресторан", amount: "$325", category: "Ужин", image: "heart", color: .systemPurple),
     ]
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Баланс"
-        label.font = .systemFont(ofSize: 18)
+        label.text = "Balance"
+        label.font = .systemFont(ofSize: 16)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -31,27 +31,71 @@ class FinanceVC: UIViewController {
     let totalAmount: UILabel = {
         let label = UILabel()
         label.text = "$1200.89"
-        label.font = .boldSystemFont(ofSize: 28)
+        label.font = .boldSystemFont(ofSize: 36)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
     }()
     
-    //add collection view
-    let month: UILabel = {
+    
+    //MARK: Month and Year picker
+    
+    let dateView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        return view
+    }()
+    
+    let monthYear: UILabel = {
         let label = UILabel()
-        label.text = "Апрель 2020"
-        label.font = .systemFont(ofSize: 20)
+        label.text = "April 2020"
+        label.font = .systemFont(ofSize: 18)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
+    }()
+    
+    let leftArrowImage: UIImageView = {
+        let image = UIImageView(image: UIImage(named: "leftArrow"))
+        image.contentMode = .scaleAspectFit
+        image.translatesAutoresizingMaskIntoConstraints = false
+        
+        return image
+    }()
+    
+    lazy var leftArrowButton: UIButton = {
+        let button = UIButton()
+        button.setImage(leftArrowImage.image, for: .normal)
+        button.addTarget(self, action: #selector(didTapLefttArrow), for: .touchUpInside)
+
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }()
+    
+    let rightArrowImage: UIImageView = {
+        let image = UIImageView(image: UIImage(named: "rightArrow"))
+        image.contentMode = .scaleAspectFit
+        image.translatesAutoresizingMaskIntoConstraints = false
+        
+        return image
+    }()
+    
+    lazy var rightArrowButton: UIButton = {
+        let button = UIButton()
+        button.setImage(rightArrowImage.image, for: .normal)
+        button.addTarget(self, action: #selector(didTapRightArrow), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
     }()
     
     let footer: UILabel = {
         let label = UILabel()
-        label.text = "См. ещё"
+        label.text = "View more"
         label.font = .systemFont(ofSize: 16)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -73,7 +117,12 @@ class FinanceVC: UIViewController {
     func addSubviews(){
         view.addSubview(titleLabel)
         view.addSubview(totalAmount)
-        view.addSubview(month)
+        
+        view.addSubview(dateView)
+        dateView.addSubview(leftArrowButton)
+        dateView.addSubview(monthYear)
+        dateView.addSubview(rightArrowButton)
+        
         view.addSubview(tableView)
         view.addSubview(footer)
     }
@@ -81,7 +130,8 @@ class FinanceVC: UIViewController {
     func configureTableView(){
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 65
+        tableView.rowHeight = 75
+        tableView.sectionFooterHeight = 10.0
         //register cells
         tableView.register(FinanceCell.self, forCellReuseIdentifier: "financeCell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -96,10 +146,26 @@ class FinanceVC: UIViewController {
             totalAmount.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             totalAmount.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
             
-            month.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            month.topAnchor.constraint(equalTo: totalAmount.bottomAnchor, constant: 25),
+            dateView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            dateView.topAnchor.constraint(equalTo: totalAmount.topAnchor, constant: 50),
+            dateView.widthAnchor.constraint(equalToConstant: 310),
+            dateView.heightAnchor.constraint(equalToConstant: 50),
             
-            tableView.topAnchor.constraint(equalTo: month.bottomAnchor, constant: 10),
+            leftArrowButton.centerYAnchor.constraint(equalTo: dateView.centerYAnchor),
+            leftArrowButton.leadingAnchor.constraint(equalTo: dateView.leadingAnchor),
+            leftArrowButton.widthAnchor.constraint(equalToConstant: 30),
+            leftArrowButton.heightAnchor.constraint(equalToConstant: 30),
+            
+            monthYear.centerXAnchor.constraint(equalTo: dateView.centerXAnchor),
+            monthYear.centerYAnchor.constraint(equalTo: dateView.centerYAnchor),
+//            month.topAnchor.constraint(equalTo: totalAmount.bottomAnchor, constant: 25),
+            
+            rightArrowButton.centerYAnchor.constraint(equalTo: dateView.centerYAnchor),
+            rightArrowButton.trailingAnchor.constraint(equalTo: dateView.trailingAnchor),
+            rightArrowButton.widthAnchor.constraint(equalToConstant: 30),
+            rightArrowButton.heightAnchor.constraint(equalToConstant: 30),
+            
+            tableView.topAnchor.constraint(equalTo: monthYear.bottomAnchor, constant: 10),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.heightAnchor.constraint(equalToConstant: CGFloat(tableView.rowHeight * CGFloat(expenses.count))),
@@ -110,6 +176,13 @@ class FinanceVC: UIViewController {
         ])
     }
     
+    @objc func didTapRightArrow(){
+        print("Finance: Right arrow tapped")
+    }
+    
+    @objc func didTapLefttArrow(){
+        print("Finance: Left arrow tapped")
+    }
 
 
 }

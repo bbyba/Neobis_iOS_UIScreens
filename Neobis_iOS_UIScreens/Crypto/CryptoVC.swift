@@ -8,18 +8,18 @@ import UIKit
 class CryptoVC: UIViewController {
     
     let coins = [
-        Coin(name: "Bitcoin", amountInDollar: "$29,850.15", change: "+1,6%", amountInCoins: "2.73 BTC", image: "bitcoin", color: "#F6543E"),
-        Coin(name: "Ethereum", amountInDollar: "$10,561.24", change: "-0,82%", amountInCoins: "47.61 ETH", image: "ethereum", color: "#6374C3"),
-        Coin(name: "Litecoin", amountInDollar: "$3,676.76", change: "-2,10%", amountInCoins: "39,27 LTC", image: "litecoin", color: "#30E0A1"),
-        Coin(name: "Ripple", amountInDollar: "$5,241.62", change: "+0,27%", amountInCoins: "16447,65 XRP", image: "ripple", color: "#638FFE"),
-        Coin(name: "Ripple", amountInDollar: "$5,241.62", change: "+0,27%", amountInCoins: "16447,65 XRP", image: "ripple", color: "#638FFE"),
-        Coin(name: "Ripple", amountInDollar: "$5,241.62", change: "+0,27%", amountInCoins: "16447,65 XRP", image: "ripple", color: "#638FFE")
+        Coin(name: "Bitcoin", amountInDollar: "$29,850.15", change: "+1,6%", amountInCoins: "2.73 BTC", image: "bitcoin", color: .systemRed),
+        Coin(name: "Ethereum", amountInDollar: "$10,561.24", change: "-0,82%", amountInCoins: "47.61 ETH", image: "ethereum", color: .systemBlue),
+        Coin(name: "Litecoin", amountInDollar: "$3,676.76", change: "-2,10%", amountInCoins: "39,27 LTC", image: "litecoin", color: .systemGreen),
+        Coin(name: "Ripple", amountInDollar: "$5,241.62", change: "+0,27%", amountInCoins: "16447,65 XRP", image: "ripple", color: .systemPurple),
+        Coin(name: "Ripple", amountInDollar: "$5,241.62", change: "+0,27%", amountInCoins: "16447,65 XRP", image: "ripple", color: .systemPurple),
+        Coin(name: "Ripple", amountInDollar: "$5,241.62", change: "+0,27%", amountInCoins: "16447,65 XRP", image: "ripple", color: .systemPurple)
     ]
     
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Portfolio"
-        label.font = .boldSystemFont(ofSize: 30)
+        label.font = .boldSystemFont(ofSize: 38)
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -61,7 +61,7 @@ class CryptoVC: UIViewController {
         
         addSubviews()
         configureTableView()
-        setupTableView()
+        setup()
     }
 
     
@@ -81,7 +81,7 @@ class CryptoVC: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func setupTableView(){
+    func setup(){
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 79),
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 28),

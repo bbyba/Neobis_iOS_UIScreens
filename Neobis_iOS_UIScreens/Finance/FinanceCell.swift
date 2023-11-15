@@ -10,7 +10,7 @@ class FinanceCell: UITableViewCell {
 
     let name: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20)
+        label.font = UIFont.boldSystemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -41,9 +41,10 @@ class FinanceCell: UITableViewCell {
         return image
     }()
     
-    let circleView: UIView = {
+    let logoBackground: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 15
+        view.translatesAutoresizingMaskIntoConstraints = false
         
         return view
     }()
@@ -60,6 +61,7 @@ class FinanceCell: UITableViewCell {
         amount.text = data.amount
         category.text = data.category
         image.image = UIImage(named: data.image)
+        logoBackground.backgroundColor = data.color
     }
     
     required init?(coder: NSCoder) {
@@ -67,7 +69,7 @@ class FinanceCell: UITableViewCell {
     }
     
     func addSubviews(){
-        contentView.addSubview(circleView)
+        contentView.addSubview(logoBackground)
         contentView.addSubview(image)
         contentView.addSubview(name)
         contentView.addSubview(amount)
@@ -77,18 +79,18 @@ class FinanceCell: UITableViewCell {
     func setupConstraints(){
         
         NSLayoutConstraint.activate([
-            circleView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            circleView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            circleView.heightAnchor.constraint(equalToConstant: 30),
-            circleView.widthAnchor.constraint(equalToConstant: 30),
+            logoBackground.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            logoBackground.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            logoBackground.heightAnchor.constraint(equalToConstant: 30),
+            logoBackground.widthAnchor.constraint(equalToConstant: 30),
             
-            image.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
-            image.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
+            image.centerXAnchor.constraint(equalTo: logoBackground.centerXAnchor),
+            image.centerYAnchor.constraint(equalTo: logoBackground.centerYAnchor),
             image.heightAnchor.constraint(equalToConstant: 15),
             image.widthAnchor.constraint(equalToConstant: 15),
             
             name.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            name.leadingAnchor.constraint(equalTo: circleView.trailingAnchor, constant: 15),
+            name.leadingAnchor.constraint(equalTo: logoBackground.trailingAnchor, constant: 15),
             
             amount.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
             amount.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),

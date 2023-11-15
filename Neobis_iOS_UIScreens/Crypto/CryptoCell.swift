@@ -49,18 +49,19 @@ class CryptoCell: UITableViewCell {
         return image
     }()
     
-    let circleView: UIView = {
+    let logoBackground: UIView = {
         let view = UIView()
 //        view.layer.opacity = 0.1
         view.alpha = 0.1
-        view.layer.cornerRadius = 20
+        view.layer.cornerRadius = 28
+        view.translatesAutoresizingMaskIntoConstraints = false
         
         return view
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+    
         addSubviews()
         setupConstraints()
     }
@@ -71,7 +72,8 @@ class CryptoCell: UITableViewCell {
         amountInDollars.text = data.amountInDollar
         amountInCoins.text = data.amountInCoins
         image.image = UIImage(named: data.image)
-        circleView.backgroundColor = UIColor(named: data.color)
+        logoBackground.backgroundColor = data.color
+//        circleView.backgroundColor = UIColor(named: data.color) //for hex
     }
     
     required init?(coder: NSCoder) {
@@ -79,7 +81,7 @@ class CryptoCell: UITableViewCell {
     }
     
     func addSubviews(){
-        contentView.addSubview(circleView)
+        contentView.addSubview(logoBackground)
         contentView.addSubview(image)
         contentView.addSubview(name)
         contentView.addSubview(changePercentage)
@@ -90,25 +92,23 @@ class CryptoCell: UITableViewCell {
     func setupConstraints(){
         NSLayoutConstraint.activate([
 
-            circleView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            circleView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            circleView.heightAnchor.constraint(equalToConstant: 56),
-            circleView.widthAnchor.constraint(equalToConstant: 56),
+            logoBackground.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            logoBackground.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            logoBackground.heightAnchor.constraint(equalToConstant: 56),
+            logoBackground.widthAnchor.constraint(equalToConstant: 56),
             
-            image.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
-            image.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
+            image.centerXAnchor.constraint(equalTo: logoBackground.centerXAnchor),
+            image.centerYAnchor.constraint(equalTo: logoBackground.centerYAnchor),
             image.heightAnchor.constraint(equalToConstant: 22),
             image.widthAnchor.constraint(equalToConstant: 22),
             
             name.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-//            name.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 20),
-            name.leadingAnchor.constraint(equalTo: circleView.trailingAnchor, constant: 12),
+            name.leadingAnchor.constraint(equalTo: logoBackground.trailingAnchor, constant: 12),
             
             changePercentage.topAnchor.constraint(equalTo: name.bottomAnchor, constant: 3),
-//            changePercentage.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 20),
-            changePercentage.leadingAnchor.constraint(equalTo: circleView.trailingAnchor, constant: 12),
+            changePercentage.leadingAnchor.constraint(equalTo: logoBackground.trailingAnchor, constant: 12),
             
-            amountInDollars.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            amountInDollars.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 22),
             amountInDollars.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
             amountInCoins.topAnchor.constraint(equalTo: amountInDollars.bottomAnchor, constant: 3),
