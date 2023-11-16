@@ -25,6 +25,8 @@ class CryptoVC: UIViewController {
         return label
     }()
     
+    
+    //MARK: Settings Button
     let settingsImage: UIImageView = {
         let image = UIImageView(image: UIImage(named: "settings"))
         image.contentMode = .scaleAspectFit
@@ -42,15 +44,17 @@ class CryptoVC: UIViewController {
         return button
     }()
     
-    let heading: UILabel = {
-        let label = UILabel()
-        label.text = "Show all"
-        label.font = .systemFont(ofSize: 16)
-        label.textAlignment = .right
-        label.textColor = .red
-        label.translatesAutoresizingMaskIntoConstraints = false
+    //MARK: "Show all" Button
+    lazy var showAllButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Show all", for: .normal)
+        button.setTitleColor(.systemRed, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 16)
+        button.titleLabel?.textAlignment = .right
+        button.addTarget(self, action: #selector(didTapShowAllButton), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
         
-        return label
+        return button
     }()
     
     let tableView = UITableView()
@@ -68,7 +72,7 @@ class CryptoVC: UIViewController {
     func addSubviews(){
         view.addSubview(titleLabel)
         view.addSubview(settingsButton)
-        view.addSubview(heading)
+        view.addSubview(showAllButton)
         view.addSubview(tableView)
     }
     
@@ -88,13 +92,15 @@ class CryptoVC: UIViewController {
             
             settingsButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 84),
             settingsButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -28),
-            settingsButton.heightAnchor.constraint(equalToConstant: 24),
             settingsButton.widthAnchor.constraint(equalToConstant: 24),
+            settingsButton.heightAnchor.constraint(equalToConstant: 24),
             
-            heading.topAnchor.constraint(equalTo: settingsButton.bottomAnchor, constant: 44),
-            heading.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -28),
+            showAllButton.topAnchor.constraint(equalTo: settingsButton.bottomAnchor, constant: 44),
+            showAllButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -28),
+            showAllButton.widthAnchor.constraint(equalToConstant: 94),
+            showAllButton.heightAnchor.constraint(equalToConstant: 16),
             
-            tableView.topAnchor.constraint(equalTo: heading.bottomAnchor, constant: 20),
+            tableView.topAnchor.constraint(equalTo: showAllButton.bottomAnchor, constant: 20),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 28),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -28),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 100)
@@ -103,6 +109,10 @@ class CryptoVC: UIViewController {
     
     @objc func didTapSettings(){
         print("Crypto: Settings button tapped.")
+    }
+    
+    @objc func didTapShowAllButton(){
+        print("Crypto: Show all button tapped.")
     }
 }
 

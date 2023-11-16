@@ -7,7 +7,6 @@
 import UIKit
 
 class WeatherVC2: UIViewController {
-    let gradientLayer = CAGradientLayer()
     
     let dailyWeather = [
         DailyWeather(temperature: "29°C", image: "cloudsun", hour: "15:00"),
@@ -26,7 +25,7 @@ class WeatherVC2: UIViewController {
         WeeklyWeather(date: "May, 01", image: "cloudsun", temperature: "32°"),
         WeeklyWeather(date: "May, 02", image: "sunny", temperature: "29°C"),
     ]
-    
+
     let settingsImage: UIImageView = {
         let image = UIImageView(image: UIImage(named: "weathersettings"))
         image.contentMode = .scaleAspectFit
@@ -38,7 +37,7 @@ class WeatherVC2: UIViewController {
     lazy var settingsButton: UIButton = {
         let button = UIButton()
         button.setImage(settingsImage.image, for: .normal)
-        button.addTarget(self, action: #selector(didTapSettings), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didTapSettingsWeather2), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
@@ -121,9 +120,14 @@ class WeatherVC2: UIViewController {
     var collectionView: UICollectionView!
     let tableView = UITableView()
     
+    lazy var gradientLayer: CAGradientLayer = {
+        let gradient = CAGradientLayer()
+        return gradient
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemCyan
+//        view.backgroundColor = .systemCyan
         
         setupGradient()
         configureCollectionView()
@@ -131,16 +135,14 @@ class WeatherVC2: UIViewController {
         addSubviews()
         setupConstraints()
     }
-    
-    private func setupGradient(){
-        gradientLayer.bounds = view.bounds
-        gradientLayer.colors = [
-            UIColor(red: 0 / 255, green: 190 / 255, blue: 229 / 255, alpha: 1).cgColor,
-            UIColor(red: 23 / 255, green: 154 / 255, blue: 250 / 255, alpha: 1).cgColor
-        ]
+
+    //MARK: Gradient
+    func setupGradient() {
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [UIColor(red: 0 / 255, green: 190 / 255, blue: 229 / 255, alpha: 1).cgColor, UIColor(red: 23 / 255, green: 154 / 255, blue: 250 / 255, alpha: 1).cgColor]
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
         gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
-        view.layer.addSublayer(gradientLayer)
+        view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
     func addSubviews(){
@@ -154,7 +156,7 @@ class WeatherVC2: UIViewController {
         weeklyView.addSubview(calendarImage)
         
         view.addSubview(tableView)
-
+        
         view.addSubview(footerView)
         footerView.addSubview(footerSun)
         footerView.addSubview(footerLabel)
@@ -200,7 +202,7 @@ class WeatherVC2: UIViewController {
     func setupConstraints(){
         NSLayoutConstraint.activate([
             settingsButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 59),
-            settingsButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 360),
+            settingsButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             settingsButton.widthAnchor.constraint(equalToConstant: 24),
             settingsButton.heightAnchor.constraint(equalToConstant: 24),
             
@@ -209,7 +211,7 @@ class WeatherVC2: UIViewController {
             dayOfTheWeek.heightAnchor.constraint(equalToConstant: 37),
             
             todayDate.topAnchor.constraint(equalTo: view.topAnchor, constant: 138),
-            todayDate.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
+            todayDate.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             todayDate.heightAnchor.constraint(equalToConstant: 37),
             
             collectionView.topAnchor.constraint(equalTo: dayOfTheWeek.bottomAnchor, constant: 32),
@@ -249,10 +251,9 @@ class WeatherVC2: UIViewController {
 //            footer.heightAnchor.constraint(equalToConstant: 38),
             
         ])
-        
     }
     
-    @objc func didTapSettings(){
+    @objc func didTapSettingsWeather2(){
         print("Weather: Settings button tapped.")
     }
 }

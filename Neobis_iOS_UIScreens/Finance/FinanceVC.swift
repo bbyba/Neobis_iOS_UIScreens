@@ -20,7 +20,7 @@ class FinanceVC: UIViewController {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Balance"
-        label.font = .systemFont(ofSize: 16)
+        label.font = .systemFont(ofSize: 18)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -166,10 +166,9 @@ class FinanceVC: UIViewController {
             rightArrowButton.heightAnchor.constraint(equalToConstant: 30),
             
             tableView.topAnchor.constraint(equalTo: monthYear.bottomAnchor, constant: 10),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
             tableView.heightAnchor.constraint(equalToConstant: CGFloat(tableView.rowHeight * CGFloat(expenses.count))),
-//            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
             
             footer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             footer.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 20)

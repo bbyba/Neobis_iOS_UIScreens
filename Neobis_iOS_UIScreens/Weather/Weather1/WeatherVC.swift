@@ -8,6 +8,7 @@ import UIKit
 
 class WeatherVC: UIViewController {
     
+    //MARK: Location picker
     let locationView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -27,7 +28,7 @@ class WeatherVC: UIViewController {
         let label = UILabel()
         label.text = "Бишкек"
         label.textColor = .white
-        label.font = .boldSystemFont(ofSize: 24)
+        label.font = .boldSystemFont(ofSize: 22)
         label.addShadowToText()
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -165,40 +166,41 @@ class WeatherVC: UIViewController {
     }()
     
     //MARK: Gradient
-    let gradientLayer = CAGradientLayer()
+    lazy var gradientLayer: CAGradientLayer = {
+        let gradient = CAGradientLayer()
+        return gradient
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemCyan
+//        view.backgroundColor = .systemCyan
+//        view.layer.addSublayer(gradientLayer)
         
         setupGradient()
         addSubviews()
         setupConstraints()
     }
     
-    private func setupGradient(){
-        gradientLayer.bounds = view.bounds
-        gradientLayer.colors = [
-            UIColor(red: 0 / 255, green: 190 / 255, blue: 229 / 255, alpha: 1).cgColor,
-            UIColor(red: 23 / 255, green: 154 / 255, blue: 250 / 255, alpha: 1).cgColor
-        ]
+    //MARK: Gradient
+    func setupGradient() {
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [UIColor(red: 0 / 255, green: 190 / 255, blue: 229 / 255, alpha: 1).cgColor, UIColor(red: 23 / 255, green: 154 / 255, blue: 250 / 255, alpha: 1).cgColor]
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
         gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
-        view.layer.addSublayer(gradientLayer)
+        view.layer.insertSublayer(gradientLayer, at: 0)
     }
 
-    
     func addSubviews(){
         view.addSubview(locationView)
+        
+        locationView.addSubview(locationImage)
+        locationView.addSubview(locationName)
+        locationView.addSubview(downArrow)
         
         view.addSubview(notification)
         view.addSubview(sunImage)
         view.addSubview(backgroundView)
         view.addSubview(nextWeekButton)
-        
-        locationView.addSubview(locationImage)
-        locationView.addSubview(locationName)
-        locationView.addSubview(downArrow)
         
         backgroundView.addSubview(todayDate)
         backgroundView.addSubview(todayTemperature)
@@ -223,15 +225,14 @@ class WeatherVC: UIViewController {
             locationImage.widthAnchor.constraint(equalToConstant: 25),
             locationImage.heightAnchor.constraint(equalToConstant: 25),
             
-            locationName.centerXAnchor.constraint(equalTo: locationView.centerXAnchor),
             locationName.centerYAnchor.constraint(equalTo: locationView.centerYAnchor),
+            locationName.leadingAnchor.constraint(equalTo: locationImage.trailingAnchor, constant: 5),
             
             downArrow.centerYAnchor.constraint(equalTo: locationView.centerYAnchor),
-            downArrow.trailingAnchor.constraint(equalTo: locationName.trailingAnchor),
+            downArrow.leadingAnchor.constraint(equalTo: locationName.trailingAnchor, constant: 5),
             downArrow.widthAnchor.constraint(equalToConstant: 10),
             downArrow.heightAnchor.constraint(equalToConstant: 10),
     
-            
 
             //notification
             notification.topAnchor.constraint(equalTo: view.topAnchor, constant: 59),
