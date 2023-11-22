@@ -218,7 +218,7 @@ class WeatherVC: UIViewController {
             locationView.topAnchor.constraint(equalTo: view.topAnchor, constant: 59),
             locationView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 31),
             locationView.widthAnchor.constraint(equalToConstant: 197),
-            locationView.heightAnchor.constraint(equalToConstant: 37),
+            locationView.heightAnchor.constraint(equalToConstant: 35),
             
             locationImage.centerYAnchor.constraint(equalTo: locationView.centerYAnchor),
             locationImage.leadingAnchor.constraint(equalTo: locationView.leadingAnchor),
@@ -242,32 +242,32 @@ class WeatherVC: UIViewController {
             
             sunImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             sunImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-            sunImage.widthAnchor.constraint(equalToConstant: 300),
-            sunImage.heightAnchor.constraint(equalToConstant: 300),
+            sunImage.widthAnchor.constraint(equalToConstant: 250),
+            sunImage.heightAnchor.constraint(equalToConstant: 250),
             
             
             //Today's info
             backgroundView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             backgroundView.topAnchor.constraint(equalTo: sunImage.bottomAnchor, constant: 10),
-            backgroundView.widthAnchor.constraint(equalToConstant: 350),
-            backgroundView.heightAnchor.constraint(equalToConstant: 335),
+            backgroundView.widthAnchor.constraint(equalToConstant: 300),
+            backgroundView.heightAnchor.constraint(equalToConstant: 300),
             
             todayDate.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
-            todayDate.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 25),
+            todayDate.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 15),
             
             todayTemperature.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
-            todayTemperature.topAnchor.constraint(equalTo: todayDate.bottomAnchor, constant: 15),
+            todayTemperature.topAnchor.constraint(equalTo: todayDate.bottomAnchor, constant: 10),
             
             todayWeather.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
-            todayWeather.topAnchor.constraint(equalTo: todayTemperature.bottomAnchor, constant: 15),
+            todayWeather.topAnchor.constraint(equalTo: todayTemperature.bottomAnchor, constant: 10),
 //            todayWeather.heightAnchor.constraint(equalToConstant: 25),
             
-            windImage.topAnchor.constraint(equalTo: todayWeather.bottomAnchor, constant: 30),
+            windImage.topAnchor.constraint(equalTo: todayWeather.bottomAnchor, constant: 20),
             windImage.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 80),
             windImage.widthAnchor.constraint(equalToConstant: 20),
             windImage.heightAnchor.constraint(equalToConstant: 20),
             
-            windSpeed.topAnchor.constraint(equalTo: todayWeather.bottomAnchor, constant: 30),
+            windSpeed.topAnchor.constraint(equalTo: todayWeather.bottomAnchor, constant: 20),
             windSpeed.leadingAnchor.constraint(equalTo: windImage.trailingAnchor, constant: 15),
 //            windSpeed.widthAnchor.constraint(equalToConstant: 20),
             windSpeed.heightAnchor.constraint(equalToConstant: 20),

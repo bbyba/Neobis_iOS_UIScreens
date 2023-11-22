@@ -98,10 +98,10 @@ class PhoneCell: UITableViewCell {
                 cellImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30),
                 
                 cellTitle.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 25),
-                cellTitle.leadingAnchor.constraint(equalTo: cellImageView.leadingAnchor, constant: 150),
+                cellTitle.leadingAnchor.constraint(equalTo: cellImageView.leadingAnchor, constant: 130),
                 
                 cellDescription.topAnchor.constraint(equalTo: cellTitle.bottomAnchor, constant: 5),
-                cellDescription.leadingAnchor.constraint(equalTo: cellImageView.leadingAnchor, constant: 150),
+                cellDescription.leadingAnchor.constraint(equalTo: cellImageView.leadingAnchor, constant: 130),
                 cellDescription.widthAnchor.constraint(equalToConstant: 185),
                 cellDescription.heightAnchor.constraint(equalToConstant: 42)
             ])
